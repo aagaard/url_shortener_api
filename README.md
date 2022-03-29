@@ -49,3 +49,7 @@ poetry run uvicorn app.main:app --reload
 poetry run pytest
 ```
 
+## Interactive use of API provided by Swagger
+
+Go to <http://127.0.0.1:8000/docs>
+
