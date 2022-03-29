@@ -12,7 +12,7 @@ Content-Type: application/json
 #
 # Give my the original url from the shorten url
 #
-GET http://127.0.0.1:8000/mDe6QM
+GET http://127.0.0.1:8000/YSRgjb
 
 #
 # Test 1
