@@ -8,15 +8,16 @@ authors = ["Søren Aagaard Mikkelsen <soren@aamikkelsen.dk>"]
 python = "^3.9"
 fastapi = "^0.75.0"
 uvicorn = {extras = ["standard"], version = "^0.17.6"}
-isort = {version = "^5.10.1", optional = true}
-black = {version = "^22.1.0", optional = true}
-pyflakes = {version = "^2.4.0", optional = true}
+pytest = "^7.1.1"
+requests = "^2.27.1"
 
 [tool.poetry.dev-dependencies]
 isort = "^5.10.1"
 black = "^22.3.0"
 flake8 = "^4.0.1"
 autoflake = "^1.4"
+ipdb = "^0.13.9"
+pyflakes = "^2.4.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
