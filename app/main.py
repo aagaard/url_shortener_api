@@ -10,7 +10,7 @@ from pydantic import BaseModel
 from pydantic.networks import HttpUrl
 from pydantic.tools import parse_obj_as
 
-from bdict import BiDict
+from .bdict import BiDict
 
 PROJECT_NAME = "url_shortener"
 DEBUG = True
