@@ -1,0 +1,24 @@
+# -*- restclient -*-
+
+#
+# Sunshine test: Shorten my url!
+#
+POST http://127.0.0.1:8000/urls
+Content-Type: application/json
+{
+    "url": "http://some_big_long_url.com/"
+}
+
+#
+# Give my the original url from the shorten url
+#
+GET http://127.0.0.1:8000/mDe6QM
+
+#
+# Test 1
+#
+POST http://127.0.0.1:8000/urls
+Content-Type: application/json
+{
+        "url": "not_a_url"
+}
