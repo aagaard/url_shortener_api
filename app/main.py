@@ -16,13 +16,13 @@ PROJECT_NAME = "url_shortener"
 DEBUG = True
 VERSION = "v1"
 
-app = FastAPI(title=PROJECT_NAME, debug=DEBUG, version=VERSION)
-
-db = BiDict()
 VALID_URL_CHARACTERS = ascii_letters + digits
 SHORTEN_URL_LENGTH = 6
 
-class ShortenUrlNotFound(Exception):
+app = FastAPI(title=PROJECT_NAME, debug=DEBUG, version=VERSION)
+db = BiDict()
+
+class ShortenUrlNotFoundError(Exception):
     ...
 
 class UrlShortenerRequest(BaseModel):
@@ -52,7 +52,7 @@ def retrieve_original_url(shorten_url: str) -> str:
     try:
         return db[shorten_url]
     except KeyError as e:
-        raise ShortenUrlNotFound(e)
+        raise ShortenUrlNotFoundError(e)
 
 
 @app.post("/urls", status_code=201)
@@ -68,7 +68,7 @@ async def convert_url(shorten_url: str):
     """Convert `shorten_url` to its original url."""
     try:
         original_url = retrieve_original_url(shorten_url)
-    except ShortenUrlNotFound:
+    except ShortenUrlNotFoundError:
         raise HTTPException(detail="Shorten URL is not found", status_code=404)
 
     return RedirectResponse(url=original_url, status_code=301)
