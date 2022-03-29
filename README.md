@@ -42,3 +42,10 @@ To run the web application in developer mode (reloads application for every file
 ``` shell
 poetry run uvicorn app.main:app --reload
 ```
+
+## To run tests
+
+``` shell
+poetry run pytest
+```
+
